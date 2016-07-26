@@ -2,8 +2,7 @@ $board-lines: #000;
 
 .board {
   margin: 0 auto;
-  max-width: 600px;
-  min-width: 200px;
+  max-width: 550px;
 }
 
 .square {
@@ -32,15 +31,14 @@ $board-lines: #000;
   border-left: 10px solid $board-lines;
 }
 
-@media (min-width: 750px) and (orientation: portrait) {
+@media only screen and (min-width: 600px) and (orientation: portrait) {
   .board {
     max-width: 100%;
-    min-width: 100%;
   }
 }
 
-@media (min-width: 750px) and (orientation: landscape) {
+@media only screen and (min-width: 600px) and (orientation: landscape) {
   .board {
-    max-width: 450px;
+    max-width: 400px;
   }
 }
