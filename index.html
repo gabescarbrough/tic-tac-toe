@@ -28,6 +28,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Sign Up</a></li>
+              <li><a href="#">Sign In</a></li>
               <li><a id="change-password-modal-link" href="#">Change Password</a></li>
               <li><a href="#">Sign Out</a></li>
             </ul>
@@ -78,16 +80,23 @@
         <div id="change-password-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-
-            <form id="change-password">
-              <fieldset>
-                <legend>Change Password</legend>
-                <input type="password" name="passwords[old]" placeholder="old password">
-                <input type="password" name="passwords[new]" placeholder="new password">
-                <input type="submit" name="submit" value="Change password">
-              </fieldset>
-            </form>
-
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Change Password</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Change Password</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
