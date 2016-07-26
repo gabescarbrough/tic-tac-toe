@@ -1,24 +1,46 @@
-div {
-  // border: 1px solid black;
+$board-lines: #000;
+
+.board {
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 200px;
 }
 
-#gameboard {
-  width: 50%;
+.square {
+  float: left;
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 33.333%;
+  position: relative;
+  width: 33.333%;
 }
 
-.col-lg-4 {
-  height: 200px;
+.board-row {
+  clear: both;
 }
 
 .middle {
-    border-top: 10px solid black;
-    border-bottom: 10px solid black;
+  border-bottom: 10px solid $board-lines;
+  border-top: 10px solid $board-lines;
 }
 
 .left {
-    border-right: 10px solid black;
+  border-right: 10px solid $board-lines;
 }
 
 .right {
-    border-left: 10px solid black;
+  border-left: 10px solid $board-lines;
+}
+
+@media (min-width: 750px) and (orientation: portrait) {
+  .board {
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 750px) and (orientation: landscape) {
+  .board {
+    max-width: 450px;
+  }
 }
