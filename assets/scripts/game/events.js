@@ -4,6 +4,9 @@
 
 let clickNumber = 0;
 let currentPlayer = "x";
+let currentBoard = [];
+
+
 
 const countClicks = $('.square').on('click', function() {
     clickNumber += 1;
@@ -22,6 +25,12 @@ const whoseTurn = $('.square').on('click', function() {
 });
 
 
+const makeBoardArray = function() {
+  for (let i = 0; i < 9; i++) {
+    currentBoard.push($('[data-square=' + i + ']').data().value);
+  } return currentBoard;
+};
+
 
 const addMarker = $('.square').on('click', function(){
   // adds visual marker
@@ -33,5 +42,6 @@ const addMarker = $('.square').on('click', function(){
 module.exports = {
   countClicks,
   whoseTurn,
-  addMarker
+  addMarker,
+  makeBoardArray
 };
