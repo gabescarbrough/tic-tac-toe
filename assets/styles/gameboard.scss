@@ -3,19 +3,24 @@ $board-lines: #000;
 .board {
   margin: 0 auto;
   max-width: 550px;
+  height: 550px;
 }
 
 .square {
   float: left;
   margin: 0;
   overflow: hidden;
-  padding-bottom: 33.333%;
   position: relative;
+  height: 100%;
   width: 33.333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .board-row {
   clear: both;
+  height: 33%;
 }
 
 .middle {
@@ -31,8 +36,24 @@ $board-lines: #000;
   border-left: 10px solid $board-lines;
 }
 
-@media (max-width: 600px) {
+.game-marker {
+  font-size: 100px;
+  text-align: center;
+  display: inline;
+  margin: 0;
+}
+
+.X {
+  color: red;
+}
+
+.O {
+  color: blue;
+}
+
+@media (max-width: 550px) {
   .board {
     max-width: 100%;
+    height: 400px;
   }
 }
