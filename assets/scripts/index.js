@@ -6,5 +6,4 @@ const gameEvents = require('./game/events.js');
 // On document ready
 $(() => {
   authEvents.addHandlers();
-  gameEvents.addMarker();
 });
