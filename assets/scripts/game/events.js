@@ -3,7 +3,7 @@
 // COUNT CLICKS
 
 let clickNumber = 0;
-let currentPlayer = "x";
+let currentPlayer = 'x';
 
 
 const countClicks = function() {
@@ -16,18 +16,22 @@ const countClicks = function() {
 
 const whoseTurn = function() {
   if (clickNumber === 0 || clickNumber % 2 ){
-    currentPlayer = "x";
+    currentPlayer = 'x';
   } else {
-    currentPlayer = "o";
+    currentPlayer = 'o';
   } return currentPlayer;
 };
 
-const addMarker = function(){
-  // adds visual marker
-  $(this).append("<h1 class='game-marker'>" + currentPlayer + "</h1>").off();
-  // adds data to data-square HTML attribute
-  $(this).data().value = currentPlayer;
-};
+
+// const checkWin = function() {
+//   if (
+//     $('[data-square="0"]').data().value === $('[data-square="1"]').data().value && $('[data-square="1"]').data().value === $('[data-square="2"]').data().value ||
+//     $('[data-square="3"]').data().value === $('[data-square="4"]').data().value && $('[data-square="5"]').data().value === $('[data-square="2"]').data().value ||
+//     $('[data-square="6"]').data().value === $('[data-square="7"]').data().value && $('[data-square="8"]').data().value === $('[data-square="2"]').data().value
+//   ) {
+//     console.log('You win!');
+//   }
+// };
 
 
 const makeBoardArray = function() {
@@ -37,6 +41,30 @@ const makeBoardArray = function() {
     currentBoard.push($('[data-square=' + i + ']').data().value);
   } return currentBoard;
 };
+
+
+const checkWinArrayHorizontal = function() {
+  let testBoard = makeBoardArray(currentPlayer);
+
+  if (
+    testBoard[0] === currentPlayer && testBoard[1] === currentPlayer && testBoard[2] === currentPlayer ||
+    testBoard[3] === currentPlayer && testBoard[4] === currentPlayer && testBoard[5] === currentPlayer ||
+    testBoard[6] === currentPlayer && testBoard[7] === 'x' && testBoard[8] === currentPlayer
+  ){
+    console.log('You win!');
+  }
+};
+
+
+
+const addMarker = function(){
+  // adds visual marker
+  $(this).append("<h1 class='game-marker'>" + currentPlayer + "</h1>").off();
+  // adds data to data-square HTML attribute
+  $(this).data().value = currentPlayer;
+  checkWinArrayHorizontal(currentPlayer);
+};
+
 
 
 
