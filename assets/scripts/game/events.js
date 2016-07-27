@@ -3,7 +3,7 @@
 // COUNT CLICKS
 
 let clickNumber = 0;
-let turn = "X";
+let currentPlayer = "x";
 
 const countClicks = $('.square').on('click', function() {
     clickNumber += 1;
@@ -15,16 +15,19 @@ const countClicks = $('.square').on('click', function() {
 
 const whoseTurn = $('.square').on('click', function() {
   if (clickNumber === 0 || clickNumber % 2 ){
-    turn = "X";
+    currentPlayer = "x";
   } else {
-    turn = "O";
-  } return turn;
+    currentPlayer = "o";
+  } return currentPlayer;
 });
 
 
 
 const addMarker = $('.square').on('click', function(){
-  $(this).append("<h1 class='game-marker'>" + turn + "</h1>").off();
+  // adds visual marker
+  $(this).append("<h1 class='game-marker'>" + currentPlayer + "</h1>").off();
+  // adds data to data-square HTML attribute
+  $(this).data().value = currentPlayer;
 });
 
 module.exports = {
