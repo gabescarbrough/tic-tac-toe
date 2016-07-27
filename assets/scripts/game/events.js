@@ -49,12 +49,34 @@ const checkWinArrayHorizontal = function() {
   if (
     testBoard[0] === currentPlayer && testBoard[1] === currentPlayer && testBoard[2] === currentPlayer ||
     testBoard[3] === currentPlayer && testBoard[4] === currentPlayer && testBoard[5] === currentPlayer ||
-    testBoard[6] === currentPlayer && testBoard[7] === 'x' && testBoard[8] === currentPlayer
+    testBoard[6] === currentPlayer && testBoard[7] === currentPlayer && testBoard[8] === currentPlayer
   ){
-    console.log('You win!');
+    console.log('You win horizontal!');
   }
 };
 
+const checkWinArrayVertical = function() {
+  let testBoard = makeBoardArray(currentPlayer);
+
+  if (
+    testBoard[0] === currentPlayer && testBoard[3] === currentPlayer && testBoard[6] === currentPlayer ||
+    testBoard[1] === currentPlayer && testBoard[4] === currentPlayer && testBoard[7] === currentPlayer ||
+    testBoard[3] === currentPlayer && testBoard[6] === currentPlayer && testBoard[8] === currentPlayer
+  ){
+    console.log('You win vertical!');
+  }
+};
+
+const checkWinArrayDiagonal = function() {
+  let testBoard = makeBoardArray(currentPlayer);
+
+  if (
+    testBoard[0] === currentPlayer && testBoard[4] === currentPlayer && testBoard[8] === currentPlayer ||
+    testBoard[2] === currentPlayer && testBoard[4] === currentPlayer && testBoard[6] === currentPlayer
+  ){
+    console.log('You win diagonal!');
+  }
+};
 
 
 const addMarker = function(){
@@ -63,6 +85,8 @@ const addMarker = function(){
   // adds data to data-square HTML attribute
   $(this).data().value = currentPlayer;
   checkWinArrayHorizontal(currentPlayer);
+  checkWinArrayVertical(currentPlayer);
+  checkWinArrayDiagonal(currentPlayer);
 };
 
 
