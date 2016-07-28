@@ -5,6 +5,7 @@
 let clickNumber = 0;
 let currentPlayer = 'x';
 let gameOver = false;
+let winner = '';
 
 const countClicks = function() {
     clickNumber += 1;
@@ -66,6 +67,7 @@ const checkWinArrayHorizontal = function() {
     testBoard[6] === currentPlayer && testBoard[7] === currentPlayer && testBoard[8] === currentPlayer
   ){
     showWinMessage();
+    winner = currentPlayer;
     gameOver = true;
   }
 };
@@ -79,6 +81,7 @@ const checkWinArrayVertical = function() {
     testBoard[3] === currentPlayer && testBoard[6] === currentPlayer && testBoard[8] === currentPlayer
   ){
     showWinMessage();
+    winner = currentPlayer;
     gameOver = true;
   }
 };
@@ -91,6 +94,7 @@ const checkWinArrayDiagonal = function() {
     testBoard[2] === currentPlayer && testBoard[4] === currentPlayer && testBoard[6] === currentPlayer
   ){
     showWinMessage();
+    winner = currentPlayer;
     gameOver = true;
   }
 };
@@ -98,6 +102,7 @@ const checkWinArrayDiagonal = function() {
 const checkForTie = function() {
   if (clickNumber === 9 && gameOver === false){
     showTieMessage();
+    gameOver = true;
   }
 };
 
@@ -122,5 +127,5 @@ const addHandlers = () => {
 };
 
 module.exports = {
-  addHandlers
+  addHandlers,
 };
