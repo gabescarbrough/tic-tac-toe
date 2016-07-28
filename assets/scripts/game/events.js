@@ -4,11 +4,10 @@
 
 let clickNumber = 0;
 let currentPlayer = 'x';
-
+let gameOver = false;
 
 const countClicks = function() {
     clickNumber += 1;
-    console.log(clickNumber);
   };
 
 //
@@ -43,6 +42,21 @@ const makeBoardArray = function() {
 };
 
 
+const showWinMessage = function() {
+  $(".board").hide();
+  $(".win-message").append("<h1>" + currentPlayer + " wins!</h1>");
+
+};
+
+const showTieMessage = function() {
+  $(".board").hide();
+  $(".win-message").append("<h1>It's a tie!</h1>");
+
+};
+
+
+// Check for wins
+
 const checkWinArrayHorizontal = function() {
   let testBoard = makeBoardArray(currentPlayer);
 
@@ -51,7 +65,8 @@ const checkWinArrayHorizontal = function() {
     testBoard[3] === currentPlayer && testBoard[4] === currentPlayer && testBoard[5] === currentPlayer ||
     testBoard[6] === currentPlayer && testBoard[7] === currentPlayer && testBoard[8] === currentPlayer
   ){
-    console.log('You win horizontal!');
+    showWinMessage();
+    gameOver = true;
   }
 };
 
@@ -63,7 +78,8 @@ const checkWinArrayVertical = function() {
     testBoard[1] === currentPlayer && testBoard[4] === currentPlayer && testBoard[7] === currentPlayer ||
     testBoard[3] === currentPlayer && testBoard[6] === currentPlayer && testBoard[8] === currentPlayer
   ){
-    console.log('You win vertical!');
+    showWinMessage();
+    gameOver = true;
   }
 };
 
@@ -74,19 +90,26 @@ const checkWinArrayDiagonal = function() {
     testBoard[0] === currentPlayer && testBoard[4] === currentPlayer && testBoard[8] === currentPlayer ||
     testBoard[2] === currentPlayer && testBoard[4] === currentPlayer && testBoard[6] === currentPlayer
   ){
-    console.log('You win diagonal!');
+    showWinMessage();
+    gameOver = true;
   }
 };
 
+const checkForTie = function() {
+  if (clickNumber === 9 && gameOver === false){
+    showTieMessage();
+  }
+};
 
 const addMarker = function(){
   // adds visual marker
   $(this).append("<h1 class='game-marker'>" + currentPlayer + "</h1>").off();
   // adds data to data-square HTML attribute
   $(this).data().value = currentPlayer;
-  checkWinArrayHorizontal(currentPlayer);
-  checkWinArrayVertical(currentPlayer);
-  checkWinArrayDiagonal(currentPlayer);
+  checkWinArrayHorizontal();
+  checkWinArrayVertical();
+  checkWinArrayDiagonal();
+  checkForTie();
 };
 
 

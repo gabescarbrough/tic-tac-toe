@@ -43,6 +43,21 @@ $board-lines: #000;
   text-transform: uppercase;
 }
 
+.win-message {
+  align-items: center;
+  display: flex;
+  // height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.win-message > h1 {
+  font-size: 100px;
+  text-transform: uppercase;
+}
+
 // .x {
 //   color: red;
 // }
