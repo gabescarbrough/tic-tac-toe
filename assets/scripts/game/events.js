@@ -78,7 +78,7 @@ const checkWinArrayVertical = function() {
   if (
     testBoard[0] === currentPlayer && testBoard[3] === currentPlayer && testBoard[6] === currentPlayer ||
     testBoard[1] === currentPlayer && testBoard[4] === currentPlayer && testBoard[7] === currentPlayer ||
-    testBoard[3] === currentPlayer && testBoard[6] === currentPlayer && testBoard[8] === currentPlayer
+    testBoard[2] === currentPlayer && testBoard[5] === currentPlayer && testBoard[8] === currentPlayer
   ){
     showWinMessage();
     winner = currentPlayer;
