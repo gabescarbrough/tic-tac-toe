@@ -1,6 +1,7 @@
 'use strict';
 
 const ui = require('../game/ui');
+const gameAPI = require('../game-api');
 
 // COUNT CLICKS
 
@@ -101,10 +102,18 @@ const addMarker = function(){
   $(this).append("<h1 class='game-marker'>" + currentPlayer + "</h1>").off();
   // adds data to data-square HTML attribute
   $(this).data().value = currentPlayer;
+
+  let index = $(this).data('square');
+
+  //checks for win
   checkWinArrayHorizontal();
   checkWinArrayVertical();
   checkWinArrayDiagonal();
   checkForTie();
+
+  // sends data to back-end
+  gameAPI.updateGame(index, currentPlayer, gameOver);
+
 };
 
 module.exports = {

@@ -1,11 +1,10 @@
 'use strict';
 
 const app = require('./app');
-const getFormFields = require('../../lib/get-form-fields');
 
-const index = function () {
+const getCompletedGames = function () {
   return $.ajax({
-    url: app.api + '/games',
+    url: app.api + '/games[?over=]',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
@@ -13,15 +12,15 @@ const index = function () {
   });
 };
 
-// const show = function (form) {
-//   let data = getFormFields(form);
-//   let id = data.game.id;
-//
-//   return $.ajax({
-//     url: app.api + '/games/' + id,
-//     method: 'GET',
-//   });
-// };
+const getGame = function () {
+  return $.ajax({
+    url: app.api + '/games/' + app.game.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    method: 'GET',
+  });
+};
 
 const createGame = function () {
   return $.ajax({
@@ -33,25 +32,29 @@ const createGame = function () {
   });
 };
 
-// const destroy = function (form) {
-//   let data = getFormFields(form);
-//   let id = data.game.id;
-//   return $.ajax({
-//     url: app.api + '/games/' + id,
-//     method: 'DELETE',
-//   });
-// };
-//
-// const update = function (form) {
-//   let data = getFormFields(form);
-//   let id = data.game.id;
-//   return $.ajax({
-//     url: app.api + '/games/' + id,
-//     method: 'PATCH',
-//     data: data,
-//   });
-// };
+const updateGame = function (index, currentPlayer, gameOver) {
+  console.log(index, currentPlayer, gameOver);
+  return $.ajax({
+    url: app.api + '/games/' + app.game.id,
+    headers: {
+    Authorization: 'Token token=' + app.user.token,
+    },
+    method: 'PATCH',
+    data: {
+            "game": {
+              "cell": {
+                "index": index,
+                "value": currentPlayer
+              },
+              "over": gameOver
+            }
+          },
+  });
+};
 
 module.exports = {
+  getCompletedGames,
+  getGame,
   createGame,
+  updateGame
 };
