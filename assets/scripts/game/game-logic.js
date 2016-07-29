@@ -52,6 +52,8 @@ const checkWinArrayHorizontal = function() {
       ui.showOWinMessage();
     }
     gameOver = true;
+    $('.board').hide();
+    $('.reset-button').show();
   }
 };
 
@@ -69,6 +71,8 @@ const checkWinArrayVertical = function() {
       ui.showOWinMessage();
     }
     gameOver = true;
+    $('.board').hide();
+    $('.reset-button').show();
   }
 };
 
@@ -85,6 +89,8 @@ const checkWinArrayDiagonal = function() {
       ui.showOWinMessage();
     }
     gameOver = true;
+    $('.board').hide();
+    $('.reset-button').show();
   }
 };
 
@@ -125,6 +131,8 @@ const resetBoard = function(){
 
   for (let i = 0; i < 9; i++) {
     $('[data-square=' + i + ']').data().value = '';
+
+  $(".win-message").children().remove();
   }
 
   clickNumber = 0;

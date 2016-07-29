@@ -59,13 +59,13 @@ $board-lines: #000;
   text-transform: uppercase;
 }
 
-// .x {
-//   color: red;
-// }
-//
-// .o {
-//   color: blue;
-// }
+.reset-button {
+  display: none;
+}
+
+.center-button {
+  text-align: center;
+}
 
 @media (max-width: 550px) {
   .board {
