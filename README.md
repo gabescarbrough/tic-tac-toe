@@ -36,7 +36,9 @@ I expected.
 
 Originally I had planned to show and hide the user interface options depending
 on whether a user is logged in. Unfortunately, I didn’t have time to get to this
-but I would like to go back and implement this feature.
+but I would like to go back and implement this feature. Also, my sign-up,
+sign-in, change password and sign out functions do not have visual feedback.
+I definitely want to improve this later.
 
 While I definitely faced challenges along the way, I am happy with how this
 application came out given the amount of time I had and how new I am to web app
