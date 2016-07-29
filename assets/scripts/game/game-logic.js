@@ -2,6 +2,8 @@
 
 const ui = require('../game/ui');
 const gameAPI = require('../game-api');
+const app = require('../app');
+
 
 // COUNT CLICKS
 
@@ -140,8 +142,13 @@ const resetBoard = function(){
 	gameOver = false;
 
   $('.board').show();
+
   gameAPI.createGame()
     .done(ui.gameCreateSuccess)
+    .fail(ui.failure);
+
+  gameAPI.getGames()
+    .done(ui.getGamesSuccess)
     .fail(ui.failure);
 };
 

@@ -25,10 +25,19 @@ const gameCreateSuccess = (data) => {
   app.game = data.game;
 };
 
+const getGamesSuccess = (data) => {
+  console.log(data);
+  app.games = data.games;
+  console.log(app.games);
+  $('.games-played').text(app.games.length + ' games');
+  $('.game-text').show();
+};
+
 
 module.exports = {
   showXWinMessage,
   showOWinMessage,
   showTieMessage,
-  gameCreateSuccess
+  gameCreateSuccess,
+  getGamesSuccess
 };

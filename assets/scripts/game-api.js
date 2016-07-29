@@ -2,9 +2,9 @@
 
 const app = require('./app');
 
-const getCompletedGames = function () {
+const getGames = function () {
   return $.ajax({
-    url: app.api + '/games[?over=]',
+    url: app.api + '/games',
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
@@ -53,7 +53,7 @@ const updateGame = function (index, currentPlayer, gameOver) {
 };
 
 module.exports = {
-  getCompletedGames,
+  getGames,
   getGame,
   createGame,
   updateGame

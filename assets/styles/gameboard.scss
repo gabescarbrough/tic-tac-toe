@@ -66,6 +66,12 @@ $board-lines: #000;
   text-align: center;
 }
 
+.game-text {
+  display: none;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
 @media (max-width: 550px) {
   .board {
     height: 400px;
