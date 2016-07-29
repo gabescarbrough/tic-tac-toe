@@ -1,6 +1,6 @@
 # My Tic Toe Game
 
-[Live Game](https://www.gabescarbrough.github.io/tic-tac-toe)
+[Live Game](https://gabescarbrough.github.io/tic-tac-toe)
 
 [Wireframes](https://www.github.com/gabescarbrough/tic-tac-toe/tree/master/wireframes)
 
