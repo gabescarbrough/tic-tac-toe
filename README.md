@@ -1,10 +1,10 @@
 # My Tic Toe Game
 
-[Live Game](gabescarbrough.github.io/tic-tac-toe)
+[Live Game](https://gabescarbrough.github.io/tic-tac-toe)
 
-[Wireframes](github.com/gabescarbrough/tic-tac-toe/tree/master/wireframes)
+[Wireframes](https://www.github.com/gabescarbrough/tic-tac-toe/tree/master/wireframes)
 
-[User Stories](github.com/gabescarbrough/tic-tac-toe/tree/master/user-stories)
+[User Stories](https://www.github.com/gabescarbrough/tic-tac-toe/tree/master/user-stories)
 
 Technologies Used
 
