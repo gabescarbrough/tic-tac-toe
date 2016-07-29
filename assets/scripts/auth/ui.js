@@ -29,6 +29,8 @@ const signInSuccess = (data) => {
 const signOutSuccess = () => {
   delete app.user;
   console.log(app);
+  $('.board').hide();
+  $('.welcome').show();
 };
 
 
