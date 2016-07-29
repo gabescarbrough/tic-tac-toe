@@ -1,5 +1,9 @@
 'use strict';
 
+const app = require('../app');
+
+
+
 const showXWinMessage = function() {
   // $(".board").hide();
   $(".win-message").append("<h1>X wins!</h1>");
@@ -16,9 +20,15 @@ const showTieMessage = function() {
 };
 
 
+const gameCreateSuccess = (data) => {
+  console.log(data);
+  app.game = data.game;
+};
+
 
 module.exports = {
   showXWinMessage,
   showOWinMessage,
-  showTieMessage
+  showTieMessage,
+  gameCreateSuccess
 };

@@ -16,6 +16,7 @@ const addHandlers = () => {
   $('.square').on('click', gameLogic.countClicks);
   $('.square').on('click', gameLogic.whoseTurn);
   $('.square').on('click', gameLogic.addMarker);
+  $('.reset-button').on('click', gameLogic.resetBoard);
 };
 
 module.exports = {

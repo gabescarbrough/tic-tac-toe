@@ -8,7 +8,6 @@ const gameAPI = require('../game-api');
 let clickNumber = 0;
 let currentPlayer = 'x';
 let gameOver = false;
-let winner = '';
 
 const countClicks = function() {
     clickNumber += 1;
@@ -24,6 +23,8 @@ const whoseTurn = function() {
     currentPlayer = 'o';
   } return currentPlayer;
 };
+
+
 
 
 const makeBoardArray = function() {
@@ -50,7 +51,6 @@ const checkWinArrayHorizontal = function() {
     } else {
       ui.showOWinMessage();
     }
-    winner = currentPlayer;
     gameOver = true;
   }
 };
@@ -68,7 +68,6 @@ const checkWinArrayVertical = function() {
     } else {
       ui.showOWinMessage();
     }
-    winner = currentPlayer;
     gameOver = true;
   }
 };
@@ -85,7 +84,6 @@ const checkWinArrayDiagonal = function() {
     } else {
       ui.showOWinMessage();
     }
-    winner = currentPlayer;
     gameOver = true;
   }
 };
@@ -116,11 +114,34 @@ const addMarker = function(){
 
 };
 
+// reset board
+
+const resetBoard = function(){
+	$(".square").children().remove();
+	$('.square').off();
+	$('.square').on('click', countClicks);
+  $('.square').on('click', whoseTurn);
+  $('.square').on('click', addMarker);
+
+  for (let i = 0; i < 9; i++) {
+    $('[data-square=' + i + ']').data().value = '';
+  }
+
+  clickNumber = 0;
+	currentPlayer = 'x';
+	gameOver = false;
+
+  $('.board').show();
+  gameAPI.createGame()
+    .done(ui.gameCreateSuccess)
+    .fail(ui.failure);
+};
+
 module.exports = {
   countClicks,
   whoseTurn,
   addMarker,
   currentPlayer,
   gameOver,
-  winner
+  resetBoard
 };

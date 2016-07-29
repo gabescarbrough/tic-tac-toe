@@ -7,6 +7,10 @@ const success = (data) => {
   console.log(data);
 };
 
+const failure = (error) => {
+  console.error(error);
+};
+
 const gameCreateSuccess = (data) => {
   console.log(data);
   app.game = data.game;
@@ -26,9 +30,7 @@ const signOutSuccess = () => {
   console.log(app);
 };
 
-const failure = (error) => {
-  console.error(error);
-};
+
 
 module.exports = {
   failure,
