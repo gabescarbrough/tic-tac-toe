@@ -19,6 +19,7 @@ const gameCreateSuccess = (data) => {
 const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app);
+  $('.welcome').hide();
   $('.board').show();
   gameAPI.createGame()
     .done(gameCreateSuccess)

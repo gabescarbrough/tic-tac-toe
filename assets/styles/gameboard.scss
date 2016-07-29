@@ -72,6 +72,15 @@ $board-lines: #000;
   text-align: center;
 }
 
+.welcome {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.welcome > h1 {
+  font-size: 72px;
+}
+
 @media (max-width: 550px) {
   .board {
     height: 400px;
